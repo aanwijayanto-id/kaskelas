@@ -209,14 +209,14 @@ class Auth extends CI_Controller{
 	}
 
 	public function del_user($id){
-		$sekretaris = $this->act->userView($id)->row_array();
+		$sekretaris = $this->Act->userView($id)->row_array();
 		if ($sekretaris['role_id'] == 2) {
 			$direct = 'sekretaris';
 		} else {
 			$direct = 'siswa';
 		}
 
-		if($this->act->delUser($id) == TRUE) {
+		if($this->Act->delUser($id) == TRUE) {
 			$this->session->set_flashdata('message', '<div class="alert
 				alert-success" role="alert"> Data pengguna berhasil di hapus</div>');
 		} else {
@@ -378,7 +378,7 @@ class Auth extends CI_Controller{
 	}
 
 	public function edit_category($id){
-		$get = $this->act->categoryView($id)->row_array();
+		$get = $this->Act->categoryView($id)->row_array();
 		if ($get['type_cat'] == 1) {
 			$direct = 'type';
 		} else {
