@@ -399,14 +399,14 @@ class Auth extends CI_Controller{
 	}
 
 	public function del_category($id){
-		$get = $this->act->categoryView($id)->row_array();
+		$get = $this->Act->categoryView($id)->row_array();
 		if ($get['type_cat'] == 1) {
 			$direct = 'type';
 		} else {
 			$direct = 'category';
 		}
 
-		if($this->act->delCategory($id) == TRUE) {
+		if($this->Act->delCategory($id) == TRUE) {
 			$this->session->set_flashdata('message', '<div class="alert
 				alert-success" role="alert"> Data berhasil di hapus</div>');
 		} else {
